@@ -2,15 +2,34 @@ import { Logo } from './components/Logo'
 import './styles/global.css'
 import { Heading } from "./components/Heading";
 import { Text } from "./components/Text";
+import { TextInput } from './components/TextInput';
+import { Envelope } from 'phosphor-react';
 
 export function App() {
   return (
     <div className="w-screen h-screen bg-gray-900 flex items-center justify-center text-gray-100">
-      <Logo/>
+      <header className="flex flex-col items-center">
+        <Logo/>
+        <Heading size="lg" className='mt-4'>
+          Ignite Lab
+        </Heading>
+        <Text size="lg" className="text-gray-400 mt-1">
+          Faca login e comece a usar
+        </Text>
+      </header>
 
-      <Heading size="lg">Ignite Lab</Heading>
-
-      <Text size="lg" className="text-gray-400">Faca login e comece a usar</Text>
+      <form className='flex flex-col items-stretch'>
+        <label htmlFor="email">
+          <Text className='font-semibold'>Endereco d e-mail</Text>
+          <TextInput.Root>
+            <TextInput.Icon>
+              <Envelope></Envelope>
+            </TextInput.Icon>
+            <TextInput.Input placeholder="digite seu email!">
+            </TextInput.Input>
+          </TextInput.Root>
+        </label>
+      </form>
     </div>
   )
 }
